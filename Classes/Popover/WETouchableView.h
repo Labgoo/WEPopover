@@ -12,23 +12,18 @@
 @class WETouchableView;
 
 /**
-  * @brief delegate to receive touch events
+  * delegate to receive touch events
   */
-@protocol WETouchableViewDelegate<NSObject>
+@protocol WETouchableViewDelegate <NSObject>
 
 - (void)viewWasTouched:(WETouchableView *)view;
 
 @end
 
 /**
- * @brief View that can handle touch events and/or disable touch forwording to child views
+ * View that can handle touch events and/or disable touch forwarding to child views
  */
-@interface WETouchableView : UIView {
-	BOOL touchForwardingDisabled;
-	id <WETouchableViewDelegate> __weak delegate;
-	NSArray *passthroughViews;
-	BOOL testHits;
-}
+@interface WETouchableView : UIView
 
 @property (nonatomic, assign) BOOL touchForwardingDisabled;
 @property (nonatomic, weak) id <WETouchableViewDelegate> delegate;

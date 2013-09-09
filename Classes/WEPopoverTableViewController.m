@@ -168,13 +168,13 @@
 	bgMargin = 13; // margin width of 13 pixels on all sides popoverBg.png (62 pixels wide - 36 pixel background) / 2 == 26 / 2 == 13 
 	bgCapSize = 31; // ImageSize/2  == 62 / 2 == 31 pixels
 	
-	props.leftBgMargin = bgMargin;
-	props.rightBgMargin = bgMargin;
-	props.topBgMargin = bgMargin;
-	props.bottomBgMargin = bgMargin;
-	props.leftBgCapSize = bgCapSize;
-	props.topBgCapSize = bgCapSize;
-	props.bgImageName = bgImageName;
+	props.leftBackgroundMargin = bgMargin;
+	props.rightBackgroundMargin = bgMargin;
+	props.topBackgroundMargin = bgMargin;
+	props.bottomBackgroundMargin = bgMargin;
+	props.leftBackgroundCapSize = bgCapSize;
+	props.topBackgroundCapSize = bgCapSize;
+	props.backgroundImageName = bgImageName;
 	props.leftContentMargin = contentMargin;
 	props.rightContentMargin = contentMargin - 1; // Need to shift one pixel for border to look correct
 	props.topContentMargin = contentMargin; 
@@ -221,7 +221,7 @@
 		//Uncomment the line below to allow the table view to handle events while the popover is displayed.
 		//Otherwise the popover is dismissed automatically if a user touches anywhere outside of its view.
 		
-		self.popoverController.passthroughViews = [NSArray arrayWithObject:self.tableView];
+		self.popoverController.passthroughViews = @[self.tableView];
 		
 		[self.popoverController presentPopoverFromRect:rect  
 												inView:self.view 

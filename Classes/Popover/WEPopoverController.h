@@ -21,33 +21,15 @@
 @end
 
 /**
- * @brief Popover controller for the iPhone, mimicing the iPad UIPopoverController interface. See that class for more details.
+ * @brief Popover controller for the iPhone, mimicking the iPad UIPopoverController interface. See that class for more details.
  */
-@interface WEPopoverController : NSObject<WETouchableViewDelegate> {
-	UIViewController *contentViewController;
-	UIView *__weak view;
-    UIView *__weak parentView;
-	WETouchableView *backgroundView;
-	
-	BOOL popoverVisible;
-	UIPopoverArrowDirection popoverArrowDirection;
-	id <WEPopoverControllerDelegate> __weak delegate;
-	CGSize popoverContentSize;
-	WEPopoverContainerViewProperties *containerViewProperties;
-	id <NSObject> context;
-	NSArray *passthroughViews;	
-}
+@interface WEPopoverController : NSObject<WETouchableViewDelegate>
 
 @property(nonatomic, strong) UIViewController *contentViewController;
-
-@property (weak, nonatomic, readonly) UIView *view;
+@property (nonatomic, strong) WEPopoverContainerViewProperties *containerViewProperties;
 @property (nonatomic, readonly, getter=isPopoverVisible) BOOL popoverVisible;
 @property (nonatomic, readonly) UIPopoverArrowDirection popoverArrowDirection;
 @property (nonatomic, weak) id <WEPopoverControllerDelegate> delegate;
-@property (nonatomic, assign) CGSize popoverContentSize;
-@property (nonatomic, strong) WEPopoverContainerViewProperties *containerViewProperties;
-@property (nonatomic, strong) id <NSObject> context;
-@property (nonatomic, weak) UIView *parentView;
 @property (nonatomic, copy) NSArray *passthroughViews;
 
 - (id)initWithContentViewController:(UIViewController *)theContentViewController;
@@ -58,14 +40,15 @@
 			   permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections 
 							   animated:(BOOL)animated;
 
-- (void)presentPopoverFromRect:(CGRect)rect 
+- (void)repositionPopoverFromRect:(CGRect)rect
+                           inView:(UIView *)view
+         permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections;
+
+- (void)presentPopoverFromRect:(CGRect)rect
 						inView:(UIView *)view 
 	  permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections 
 					  animated:(BOOL)animated;
 
-- (void)repositionPopoverFromRect:(CGRect)rect
-						   inView:(UIView *)view
-		 permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections;
 
 - (void)repositionPopoverFromRect:(CGRect)rect
 						   inView:(UIView *)view

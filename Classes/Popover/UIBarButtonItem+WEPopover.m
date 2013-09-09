@@ -25,7 +25,7 @@
 	NSUInteger subviewCount = subviews.count;
 	
 	if (subviewCount > 0 && indexOfView != NSNotFound) {
-		UIView *button = [parentView.subviews objectAtIndex:indexOfView];
+		UIView *button = parentView.subviews[indexOfView];
 		return [button convertRect:button.bounds toView:v];
 	} else {
 		return CGRectZero;

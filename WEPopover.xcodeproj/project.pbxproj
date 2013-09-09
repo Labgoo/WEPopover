@@ -321,6 +321,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WEPopover_Prefix.pch;
 				INFOPLIST_FILE = "WEPopover-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = WEPopover;
 			};
 			name = Debug;

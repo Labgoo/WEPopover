@@ -79,8 +79,5 @@
 	}
 }
 
-- (void)dealloc {
-	[self viewDidUnload];
-}
 
 @end
