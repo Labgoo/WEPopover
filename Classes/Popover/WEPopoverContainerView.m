@@ -123,10 +123,6 @@ permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
                           alpha:1.0];
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    return CGRectContainsPoint(self.contentRect, point);
-}
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
 }
