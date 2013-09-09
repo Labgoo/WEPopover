@@ -18,7 +18,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
     if ((self = [super initWithStyle:style])) {
-		self.contentSizeForViewInPopover = CGSizeMake(300, 1 * 44 - 1);
+        self.contentSizeForViewInPopover = CGSizeMake(300, 1 * 44 - 1);
     }
     return self;
 }
@@ -29,8 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	self.tableView.rowHeight = 44.0;
-	self.view.backgroundColor = [UIColor clearColor];
+    self.tableView.rowHeight = 44.0;
+    self.view.backgroundColor = [UIColor clearColor];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -73,25 +73,28 @@
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return 1;
 }
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:CellIdentifier];
     }
-    
+
     // Configure the cell...
-	cell.textLabel.text = [NSString stringWithFormat:@"Item %d", [indexPath row]]; 
-	cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.text = [NSString stringWithFormat:@"Item %d", [indexPath row]];
+    cell.textLabel.textColor = [UIColor whiteColor];
     return cell;
 }
 
@@ -101,7 +104,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	
+
 }
 
 
@@ -111,7 +114,7 @@
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
@@ -119,8 +122,6 @@
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
-
-
 
 
 @end

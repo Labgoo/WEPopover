@@ -58,7 +58,6 @@
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 	[self.popoverController dismissPopoverAnimated:NO];
-	self.popoverController = nil;
 }
 
 - (IBAction)onButtonClick:(UIButton *)button {

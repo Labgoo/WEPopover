@@ -7,24 +7,19 @@
 //
 
 #import "WEPopoverAppDelegate.h"
-#import "WEPopoverViewController.h"
 
 @implementation WEPopoverAppDelegate
-
-@synthesize window;
-@synthesize navController;
-
 
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     // Override point for customization after application launch.
 
     // Add the view controller's view to the window and display.
-    [window addSubview:navController.view];
-    [window makeKeyAndVisible];
+    [self.window addSubview:self.navController.view];
+    [self.window makeKeyAndVisible];
 
     return YES;
 }
@@ -76,8 +71,6 @@
      Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
      */
 }
-
-
 
 
 @end
