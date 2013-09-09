@@ -166,14 +166,16 @@
 	
 	// These constants are determined by the popoverBg.png image file and are image dependent
 	bgMargin = 13; // margin width of 13 pixels on all sides popoverBg.png (62 pixels wide - 36 pixel background) / 2 == 26 / 2 == 13 
-	bgCapSize = 31; // ImageSize/2  == 62 / 2 == 31 pixels
+	bgCapSize = 20; // ImageSize/2  == 62 / 2 == 31 pixels
 	
 	props.leftBackgroundMargin = bgMargin;
 	props.rightBackgroundMargin = bgMargin;
 	props.topBackgroundMargin = bgMargin;
 	props.bottomBackgroundMargin = bgMargin;
 	props.leftBackgroundCapSize = bgCapSize;
+    props.rightBackgroundCapSize = bgCapSize;
 	props.topBackgroundCapSize = bgCapSize;
+    props.bottomBackgroundCapSize = bgCapSize;
 	props.backgroundImageName = bgImageName;
 	props.leftContentMargin = contentMargin;
 	props.rightContentMargin = contentMargin - 1; // Need to shift one pixel for border to look correct

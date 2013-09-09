@@ -10,7 +10,10 @@
 #import <UIKit/UIKit.h>
 
 /**
- * @brief Properties for the container view determining the area where the actual content view can/may be displayed. Also Images can be supplied for the arrow images and background.
+ * This class contains customizable parameter for the containerView
+ *
+ * Properties for the container view determining the area where the actual content view can/may be displayed.
+ * Also images can be supplied for the arrow and background.
  */
 @interface WEPopoverContainerViewProperties : NSObject
 
@@ -27,9 +30,13 @@
 @property(nonatomic) CGFloat rightContentMargin;
 @property(nonatomic) CGFloat topContentMargin;
 @property(nonatomic) CGFloat bottomContentMargin;
-@property(nonatomic) NSInteger topBackgroundCapSize;
-@property(nonatomic) NSInteger leftBackgroundCapSize;
+@property(nonatomic) CGFloat topBackgroundCapSize;
+@property(nonatomic) CGFloat leftBackgroundCapSize;
+@property(nonatomic) CGFloat bottomBackgroundCapSize;
+@property(nonatomic) CGFloat rightBackgroundCapSize;
 @property(nonatomic) CGFloat arrowMargin;
+
++ (WEPopoverContainerViewProperties *)defaultProperties;
 
 @end
 
@@ -37,36 +44,39 @@
 @class WEPopoverContainerView;
 
 /**
- * Container/background view for displaying a popover view.
+ * This containerView contains arrowImage, backgroundImage and contentView (which should be positioned
+ * within backgroundImage's frame)
  */
 @interface WEPopoverContainerView : UIView
 
 /**
  * The current arrow direction for the popover.
  */
-@property (nonatomic, readonly) UIPopoverArrowDirection arrowDirection;
+@property(nonatomic, readonly) UIPopoverArrowDirection arrowDirection;
 
 /**
  * The content view being displayed.
  */
-@property (nonatomic, strong) UIView *contentView;
+@property(nonatomic, strong) UIView *contentView;
 
 /**
- * Initializes the position of the popover with a size, anchor rect, display area and permitted arrow directions and optionally the properties.
- * If the last is not supplied the defaults are taken (requires images to be present in bundle representing a black rounded background with partial transparency).
+ * Initializes the position of the popover with a size, anchor rect, display area
+ * and permitted arrow directions and optionally the properties.
+ * If the last is not supplied the defaults are taken (requires images to be present in bundle
+ * representing a black rounded background with partial transparency).
  */
-- (id)initWithSize:(CGSize)theSize 
-		anchorRect:(CGRect)anchorRect 
-	   displayArea:(CGRect)displayArea
+- (id)initWithSize:(CGSize)size
+        anchorRect:(CGRect)anchorRect
+             displayRect:(CGRect)displayRect
 permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
-		properties:(WEPopoverContainerViewProperties *)properties;	
+              properties:(WEPopoverContainerViewProperties *)properties;
 
 /**
  * To update the position of the popover with a new anchor rect, display area and permitted arrow directions
  */
-- (void)updatePositionWithSize:(CGSize)theSize
+- (void)updatePositionWithSize:(CGSize)size
                     anchorRect:(CGRect)anchorRect
-                   displayArea:(CGRect)displayArea
+                   displayRect:(CGRect)displayRect
       permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections;
 
 @end

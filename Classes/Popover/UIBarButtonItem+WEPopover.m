@@ -11,7 +11,7 @@
 
 @implementation UIBarButtonItem(WEPopover)
 
-- (CGRect)frameInView:(UIView *)v {
+- (CGRect)frameInView:(UIView *)view {
 	
 	UIView *theView = self.customView;
 	if (!theView && [self respondsToSelector:@selector(view)]) {
@@ -26,14 +26,14 @@
 	
 	if (subviewCount > 0 && indexOfView != NSNotFound) {
 		UIView *button = parentView.subviews[indexOfView];
-		return [button convertRect:button.bounds toView:v];
+		return [button convertRect:button.bounds
+                            toView:view];
 	} else {
 		return CGRectZero;
 	}
 }
 
 - (UIView *)superview {
-	
 	UIView *theView = self.customView;
 	if (!theView && [self respondsToSelector:@selector(view)]) {
 		theView = [self performSelector:@selector(view)];

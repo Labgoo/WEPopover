@@ -12,7 +12,7 @@
 
 @interface UIBarButtonItem(WEPopover)
 
-- (CGRect)frameInView:(UIView *)v;
+- (CGRect)frameInView:(UIView *)view;
 - (UIView *)superview;
 
 @end

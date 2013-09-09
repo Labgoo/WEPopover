@@ -13,6 +13,6 @@
 @protocol WEPopoverParentView
 
 @optional
-- (CGRect)displayAreaForPopover;
+- (CGRect)displayRectForPopover;
 
 @end
