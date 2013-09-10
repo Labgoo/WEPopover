@@ -29,13 +29,13 @@ Please refer to Apple `UIPopoverController` [documentation](https://developer.ap
 for the standard APIs to create and display a popover.
 
 Additional features include:
-- Support for custom background views: specify the `WEPopoverContainerViewProperties` for the view to use as 
+- **Support for custom background views**: specify the `WEPopoverContainerViewProperties` for the view to use as 
 background. The properties specify the images to use for the stretchable background and the arrows (four directions). 
 It also specifies the margins and the cap sizes for resizing the background. A default image with corresponding 
 arrows are supplied with the library.
-- Support for limiting the area to display the popover: implement the protocol `WEPopoverParentView` for the view 
-you supply to the presentPopover method and implement the `- (CGRect)displayAreaForPopover`.
-- Support for custom appearing and disappering animation: use `- (void)presentPopoverFromRect:inView:permittedArrowDirections:appearingAnimations:disappearingAnimations:`. 
+- **Support for custom appearing and disappering animations**: use `- presentPopoverFromRect:inView:permittedArrowDirections:appearingAnimations:disappearingAnimations:`. 
 The disappearing animations is animated by the popover controller when it dismisses the popover. However,
-you can cancel this supplied disappearing animation by programmatically calling `- (void)dismissPopoverAnimated:` with
+you can cancel this supplied disappearing animation by programmatically calling `- dismissPopoverAnimated:` with
 a `NO` parameter.
+- **Support for limiting the area to display the popover**: implement the protocol `WEPopoverParentView` for the view 
+you supply to the presentPopover method and implement the `- displayAreaForPopover`.
