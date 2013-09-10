@@ -275,7 +275,9 @@ const CGFloat kFadeDuration = 0.3;
                     [self.delegate popoverControllerDidDismissPopover:self];
                 }
             }];
-            self.disappearingAnimations();
+            if (self.disappearingAnimations) {
+                self.disappearingAnimations();
+            }
             [CATransaction commit];
         } else {
             [self cleanUpAfterDisappearing:NO];
