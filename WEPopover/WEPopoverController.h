@@ -50,7 +50,7 @@
 
 - (void)presentPopoverFromRect:(CGRect)rect
                         inView:(UIView *)view
-      permittedArrowDirections:(UIPopoverArrowDirection)arrowDirection
+      permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections
            appearingAnimations:(void (^)(void))appearingAnimations
         disappearingAnimations:(void (^)(void))disappearingAnimations;
 

@@ -12,6 +12,7 @@
 #import "UIBarButtonItem+WEPopover.h"
 
 typedef void (^Animations)(void);
+
 const CGFloat kFadeDuration = 0.3;
 
 @interface WEPopoverController ()
@@ -65,6 +66,12 @@ const CGFloat kFadeDuration = 0.3;
     if (viewController != _contentViewController) {
         _contentViewController = viewController;
         _popoverContentSize = CGSizeZero;
+    }
+}
+
+- (void)setView:(UIView *)view {
+    if (_view != view) {
+        _view = view;
     }
 }
 
@@ -148,7 +155,8 @@ const CGFloat kFadeDuration = 0.3;
       permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections
            appearingAnimations:(void (^)(void))appearingAnimations
         disappearingAnimations:(void (^)(void))disappearingAnimations {
-
+    self.appearingAnimations = appearingAnimations;
+    self.disappearingAnimations = disappearingAnimations;
     [self dismissPopoverAnimated:NO];
 
     // First force a load view for the contentViewController so the popoverContentSize is properly initialized
@@ -206,28 +214,17 @@ const CGFloat kFadeDuration = 0.3;
     }
 
     [self.view becomeFirstResponder];
-    self.popoverVisible = YES;
 
     if (appearingAnimations) {
         [CATransaction begin];
         [CATransaction setCompletionBlock:^{
-            self.view.userInteractionEnabled = YES;
-            self.popoverVisible = YES;
-
-            if ([self forwardAppearanceMethods]) {
-                [self.contentViewController viewDidAppear:YES];
-            }
+            [self cleanUpAfterAppearing:YES];
         }];
         appearingAnimations();
         [CATransaction commit];
     } else {
-        if ([self forwardAppearanceMethods]) {
-            [self.contentViewController viewDidAppear:isAnimated];
-        }
+        [self cleanUpAfterAppearing:NO];
     }
-
-    self.appearingAnimations = appearingAnimations;
-    self.disappearingAnimations = disappearingAnimations;
 }
 
 #pragma mark - WETouchableViewDelegate
@@ -252,12 +249,6 @@ const CGFloat kFadeDuration = 0.3;
     }
 }
 
-- (void)setView:(UIView *)view {
-    if (_view != view) {
-        _view = view;
-    }
-}
-
 - (BOOL)forwardAppearanceMethods {
     return ![self.contentViewController respondsToSelector:@selector(shouldAutomaticallyForwardAppearanceMethods)];
 }
@@ -272,22 +263,12 @@ const CGFloat kFadeDuration = 0.3;
         if ([self forwardAppearanceMethods]) {
             [self.contentViewController viewWillDisappear:animated];
         }
-        self.popoverVisible = NO;
         [self.view resignFirstResponder];
 
         if (animated) {
             [CATransaction begin];
             [CATransaction setCompletionBlock:^{
-                self.popoverVisible = NO;
-
-                if ([self forwardAppearanceMethods]) {
-                    [self.contentViewController viewDidDisappear:YES];
-                }
-                [self.view removeFromSuperview];
-                self.view = nil;
-                [self.backgroundView removeFromSuperview];
-                self.backgroundView = nil;
-
+                [self cleanUpAfterDisappearing:YES];
                 if (userInitiated) {
                     // Only send message to delegate in case the user initiated this event,
                     // which is if he touched outside the view
@@ -297,13 +278,7 @@ const CGFloat kFadeDuration = 0.3;
             self.disappearingAnimations();
             [CATransaction commit];
         } else {
-            if ([self forwardAppearanceMethods]) {
-                [self.contentViewController viewDidDisappear:animated];
-            }
-            [self.view removeFromSuperview];
-            self.view = nil;
-            [self.backgroundView removeFromSuperview];
-            self.backgroundView = nil;
+            [self cleanUpAfterDisappearing:NO];
         }
     }
 }
@@ -321,5 +296,25 @@ const CGFloat kFadeDuration = 0.3;
     return displayRect;
 }
 
+- (void)cleanUpAfterAppearing:(BOOL)animated {
+    self.view.userInteractionEnabled = YES;
+    self.popoverVisible = YES;
+
+    if ([self forwardAppearanceMethods]) {
+        [self.contentViewController viewDidAppear:animated];
+    }
+}
+
+- (void)cleanUpAfterDisappearing:(BOOL)animated {
+    self.popoverVisible = NO;
+
+    if ([self forwardAppearanceMethods]) {
+        [self.contentViewController viewDidDisappear:animated];
+    }
+    [self.view removeFromSuperview];
+    self.view = nil;
+    [self.backgroundView removeFromSuperview];
+    self.backgroundView = nil;
+}
 
 @end
