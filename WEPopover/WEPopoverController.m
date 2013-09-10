@@ -138,16 +138,16 @@ const CGFloat kFadeDuration = 0.3;
 
     [self presentPopoverFromRect:rect
                           inView:view
-         permittedArrowDirection:arrowDirections
+        permittedArrowDirections:arrowDirections
              appearingAnimations:appearingAnimations
-           disapperaingAnimation:disappearingAnimations];
+          disappearingAnimations:disappearingAnimations];
 }
 
 - (void)presentPopoverFromRect:(CGRect)rect
                         inView:(UIView *)view
-       permittedArrowDirection:(UIPopoverArrowDirection)arrowDirections
-           appearingAnimations:(Animations)appearingAnimations
-         disapperaingAnimation:(Animations)disappearingAnimations {
+      permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections
+           appearingAnimations:(void (^)(void))appearingAnimations
+        disappearingAnimations:(void (^)(void))disappearingAnimations {
 
     [self dismissPopoverAnimated:NO];
 
