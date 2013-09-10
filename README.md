@@ -1,6 +1,3 @@
-WEPopover
-====================
-
 WEPopover is an customizable popover controller which mimics and extends `UIPopoverController`'s APIs.
 
 
