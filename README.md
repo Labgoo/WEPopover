@@ -7,7 +7,14 @@ Installation
 The library's source code can be found in the WEPopover folder of the root directory. It also can images for default
 look & feel of the popup.
 
-Alternatively, you can use CocoaPods and add this project's podspec file to your project's podfile.
+Alternatively, you can use [CocoaPods](http://cocoapods.org/) and add the following line to your project's Podfile.
+
+```
+...
+pod 'WEPopover', :podspec => 'https://raw.github.com/Labgoo/WEPopover/master/WEPopover.podspec'
+...
+```
+
 
 
 Dependencies & Compatibility
