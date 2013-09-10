@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-               BuildableName = "WEPopover.app"
-               BlueprintName = "WEPopover"
-               ReferencedContainer = "container:WEPopover.xcodeproj">
+               BlueprintIdentifier = "4196ADBF17DF00F800F5E367"
+               BuildableName = "WEPopoverDemo.app"
+               BlueprintName = "WEPopoverDemo"
+               ReferencedContainer = "container:WEPopoverDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "WEPopover.app"
-            BlueprintName = "WEPopover"
-            ReferencedContainer = "container:WEPopover.xcodeproj">
+            BlueprintIdentifier = "4196ADBF17DF00F800F5E367"
+            BuildableName = "WEPopoverDemo.app"
+            BlueprintName = "WEPopoverDemo"
+            ReferencedContainer = "container:WEPopoverDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "WEPopover.app"
-            BlueprintName = "WEPopover"
-            ReferencedContainer = "container:WEPopover.xcodeproj">
+            BlueprintIdentifier = "4196ADBF17DF00F800F5E367"
+            BuildableName = "WEPopoverDemo.app"
+            BlueprintName = "WEPopoverDemo"
+            ReferencedContainer = "container:WEPopoverDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "WEPopover.app"
-            BlueprintName = "WEPopover"
-            ReferencedContainer = "container:WEPopover.xcodeproj">
+            BlueprintIdentifier = "4196ADBF17DF00F800F5E367"
+            BuildableName = "WEPopoverDemo.app"
+            BlueprintName = "WEPopoverDemo"
+            ReferencedContainer = "container:WEPopoverDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
