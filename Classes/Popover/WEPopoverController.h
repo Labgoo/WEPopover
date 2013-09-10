@@ -13,7 +13,7 @@
 
 @class WEPopoverController;
 
-@protocol WEPopoverControllerDelegate<NSObject>
+@protocol WEPopoverControllerDelegate <NSObject>
 
 - (void)popoverControllerDidDismissPopover:(WEPopoverController *)popoverController;
 - (BOOL)popoverControllerShouldDismissPopover:(WEPopoverController *)popoverController;
@@ -24,7 +24,7 @@
  * Popover controller for the iPhone, mimicking the iPad UIPopoverController interface.
  * See that class for more details.
  */
-@interface WEPopoverController : NSObject<WETouchableViewDelegate>
+@interface WEPopoverController : NSObject <WETouchableViewDelegate>
 
 @property(nonatomic, strong) UIViewController *contentViewController;
 @property(nonatomic, strong) WEPopoverContainerViewProperties *containerViewProperties;
@@ -32,7 +32,7 @@
 @property(nonatomic, readonly) UIPopoverArrowDirection popoverArrowDirection;
 @property(nonatomic, weak) id <WEPopoverControllerDelegate> delegate;
 @property(nonatomic, copy) NSArray *passthroughViews;
-@property(nonatomic, weak) UIView *parentView;
+@property(nonatomic, strong) UIView *view;
 
 
 - (id)initWithContentViewController:(UIViewController *)contentViewController;
@@ -40,13 +40,18 @@
 - (void)dismissPopoverAnimated:(BOOL)animated;
 
 - (void)presentPopoverFromBarButtonItem:(UIBarButtonItem *)barButtonItem
-			   permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections 
-							   animated:(BOOL)animated;
+               permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections
+                               animated:(BOOL)animated;
 
 - (void)presentPopoverFromRect:(CGRect)rect
-						inView:(UIView *)view 
-	  permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections 
-					  animated:(BOOL)animated;
+                        inView:(UIView *)view
+      permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections
+                      animated:(BOOL)animated;
 
+- (void)presentPopoverFromRect:(CGRect)rect
+                        inView:(UIView *)view
+       permittedArrowDirection:(UIPopoverArrowDirection)arrowDirection
+           appearingAnimations:(void (^)(void))appearingAnimations
+         disapperaingAnimation:(void (^)(void))disappearingAnimations;
 
 @end
