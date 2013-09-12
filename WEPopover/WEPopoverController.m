@@ -190,14 +190,11 @@ const CGFloat kFadeDuration = 0.3;
             UIViewAutoresizingFlexibleBottomMargin);
     self.backgroundView.backgroundColor = [UIColor clearColor];
     self.backgroundView.delegate = self;
-
-    [keyView addSubview:self.backgroundView];
-
-    containerView.frame = [view convertRect:containerView.frame
-                                     toView:self.backgroundView];
-
     [self.backgroundView addSubview:containerView];
 
+    [keyView addSubview:self.backgroundView];
+    containerView.frame = [view convertRect:containerView.frame
+                                     toView:self.backgroundView];
     containerView.contentView = self.contentViewController.view;
     containerView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
             UIViewAutoresizingFlexibleRightMargin);
@@ -205,12 +202,8 @@ const CGFloat kFadeDuration = 0.3;
     self.view = containerView;
     [self updateBackgroundPassthroughViews];
 
-    BOOL isAnimated = NO;
-    if (appearingAnimations) {
-        isAnimated = YES;
-    }
     if ([self forwardAppearanceMethods]) {
-        [self.contentViewController viewWillAppear:isAnimated];
+        [self.contentViewController viewWillAppear:(appearingAnimations ? YES : NO)];
     }
 
     [self.view becomeFirstResponder];
