@@ -170,8 +170,6 @@ const CGFloat kFadeDuration = 0.3;
 
     UIView *keyView = self.keyView;
     CGRect displayRect = [self displayRectForView:view];
-    rect = [keyView convertRect:rect
-                       fromView:view];
 
     WEPopoverContainerViewProperties *properties = self.containerViewProperties ?
             self.containerViewProperties :
