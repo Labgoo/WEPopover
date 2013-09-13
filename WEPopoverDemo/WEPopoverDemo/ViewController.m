@@ -75,6 +75,7 @@ NSString *const kCustomAnimationTitle = @"Custom Animations";
     CGPoint tapLocation = [tapGesture locationInView:self.view];
     UIViewController *contentViewController = [self createContentViewController:NSStringFromCGPoint(tapLocation)];
     self.customPopoverController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
+    self.customPopoverController.arrowOffset = 50.0;
     [self showPopupAtRect:CGRectMake(tapLocation.x, tapLocation.y, 0, 0)];
 }
 
