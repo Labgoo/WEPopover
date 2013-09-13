@@ -11,7 +11,7 @@ Alternatively, you can use [CocoaPods](http://cocoapods.org/) and add the follow
 
 ```
 ...
-pod 'WEPopover', :podspec => 'https://raw.github.com/Labgoo/CocoaPodsSpecs/master/WEPopover/0.1.0/WEPopover.podspec'
+pod 'WEPopover', :podspec => 'https://raw.github.com/Labgoo/CocoaPodsSpecs/master/WEPopover/0.2.0/WEPopover.podspec'
 ...
 ```
 
