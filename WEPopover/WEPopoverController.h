@@ -27,13 +27,13 @@
 @interface WEPopoverController : NSObject <WETouchableViewDelegate>
 
 @property(nonatomic, strong) UIViewController *contentViewController;
-@property(nonatomic, strong) WEPopoverContainerViewProperties *containerViewProperties;
 @property(nonatomic, readonly, getter=isPopoverVisible) BOOL popoverVisible;
 @property(nonatomic, readonly) UIPopoverArrowDirection popoverArrowDirection;
-@property(nonatomic, weak) id <WEPopoverControllerDelegate> delegate;
+@property(nonatomic, strong, readonly) UIView *view;
 @property(nonatomic, copy) NSArray *passthroughViews;
-@property(nonatomic, strong) UIView *view;
-
+@property(nonatomic, strong) WEPopoverContainerViewProperties *containerViewProperties;
+@property(nonatomic) CGFloat arrowOffset;
+@property(nonatomic, weak) id <WEPopoverControllerDelegate> delegate;
 
 - (id)initWithContentViewController:(UIViewController *)contentViewController;
 

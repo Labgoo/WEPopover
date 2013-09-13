@@ -20,6 +20,7 @@ const CGFloat kFadeDuration = 0.3;
 @property(nonatomic) UIPopoverArrowDirection popoverArrowDirection;
 @property(nonatomic) BOOL popoverVisible;
 @property(nonatomic) CGSize popoverContentSize;
+@property(nonatomic, strong) UIView *view;
 @property(nonatomic, strong) WETouchableView *backgroundView;
 @property(nonatomic, strong) Animations appearingAnimations;
 @property(nonatomic, strong) Animations disappearingAnimations;
@@ -42,6 +43,7 @@ const CGFloat kFadeDuration = 0.3;
     self = [self init];
     if (self) {
         self.contentViewController = contentViewController;
+        self.arrowOffset = 0.0;
     }
     return self;
 }
@@ -166,7 +168,10 @@ const CGFloat kFadeDuration = 0.3;
         self.popoverContentSize = self.contentViewController.contentSizeForViewInPopover;
     }
 
+    UIView *keyView = self.keyView;
     CGRect displayRect = [self displayRectForView:view];
+    rect = [keyView convertRect:rect
+                       fromView:view];
 
     WEPopoverContainerViewProperties *properties = self.containerViewProperties ?
             self.containerViewProperties :
@@ -174,11 +179,11 @@ const CGFloat kFadeDuration = 0.3;
     WEPopoverContainerView *containerView = [[WEPopoverContainerView alloc] initWithSize:self.popoverContentSize
                                                                               anchorRect:rect
                                                                              displayRect:displayRect
+                                                               arrowOffsetFromBackground:self.arrowOffset
                                                                 permittedArrowDirections:arrowDirections
                                                                               properties:properties];
     self.popoverArrowDirection = containerView.arrowDirection;
 
-    UIView *keyView = self.keyView;
 
     self.backgroundView = [[WETouchableView alloc] initWithFrame:keyView.bounds];
     self.backgroundView.contentMode = UIViewContentModeScaleToFill;
