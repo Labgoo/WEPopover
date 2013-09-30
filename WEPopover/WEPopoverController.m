@@ -6,7 +6,6 @@
 //  Copyright 2010 Werner IT Consultancy. All rights reserved.
 //
 
-#import <QuartzCore/CATransaction.h>
 #import "WEPopoverController.h"
 #import "WEPopoverParentView.h"
 #import "UIBarButtonItem+WEPopover.h"
@@ -122,12 +121,8 @@ const CGFloat kFadeDuration = 0.3;
             self.view.alpha = 0.0;
 
             [UIView animateWithDuration:kFadeDuration
-                                  delay:0.0
-                                options:UIViewAnimationOptionCurveLinear
                              animations:^{
                                  self.view.alpha = 1.0;
-                             }
-                             completion:^(BOOL finished) {
                              }];
         };
 
@@ -135,12 +130,8 @@ const CGFloat kFadeDuration = 0.3;
             self.view.userInteractionEnabled = NO;
 
             [UIView animateWithDuration:kFadeDuration
-                                  delay:0.0
-                                options:UIViewAnimationOptionCurveLinear
                              animations:^{
                                  self.view.alpha = 0.0;
-                             }
-                             completion:^(BOOL finished) {
                              }];
         };
     }
@@ -313,6 +304,8 @@ const CGFloat kFadeDuration = 0.3;
     self.view = nil;
     [self.backgroundView removeFromSuperview];
     self.backgroundView = nil;
+    self.appearingAnimations = nil;
+    self.disappearingAnimations = nil;
 }
 
 @end

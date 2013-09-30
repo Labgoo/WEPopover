@@ -27,7 +27,7 @@ NSString *const kCustomAnimationTitle = @"Custom Animations";
 @property(nonatomic, strong) NSArray *animationTitles;
 @property(nonatomic, strong) IBOutlet UIBarButtonItem *changeAnimationBarButtonItem;
 @property(nonatomic, strong) IBOutlet UIView *touchableView;
-@property (strong, nonatomic) IBOutlet UIView *blackBackgroundMaskView;
+@property(nonatomic, strong) IBOutlet UIView *blackBackgroundMaskView;
 
 @end
 
@@ -43,7 +43,7 @@ NSString *const kCustomAnimationTitle = @"Custom Animations";
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                     action:@selector(showPopupAtTap:)];
     [self.touchableView addGestureRecognizer:tapRecognizer];
-    
+
     self.blackBackgroundMaskView.hidden = YES;
 }
 
