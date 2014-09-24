@@ -156,7 +156,11 @@ const CGFloat kFadeDuration = 0.3;
     [self.contentViewController view];
 
     if (CGSizeEqualToSize(self.popoverContentSize, CGSizeZero)) {
-        self.popoverContentSize = self.contentViewController.contentSizeForViewInPopover;
+        if ([self.contentViewController respondsToSelector:@selector(preferredContentSize)]) {
+            self.popoverContentSize = self.contentViewController.preferredContentSize;
+        } else {
+            self.popoverContentSize = self.contentViewController.contentSizeForViewInPopover;
+        }
     }
 
     UIView *keyView = self.keyView;
